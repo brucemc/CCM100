@@ -1,0 +1,87 @@
+\documentclass[a4paper,10pt,parskip=half,DIV=calc,chapterprefix=true,titlepage=true]{scrbook}
+%\setcounter{secnumdepth}{\chapternumdepth}
+\usepackage{mathptmx}% http://ctan.org/pkg/times
+%\usepackage[osf,sc]{mathpazo}% http://ctan.org/pkg/times
+%\usepackage[sc]{mathpazo}% http://ctan.org/pkg/times
+\linespread{1.05}
+%\renewcommand*{\sectionformat}{}
+\setcounter{secnumdepth}{0}
+\renewcommand*\sectfont{\normalcolor\bfseries}% removed \sffamily
+\setparsizes{1em}{0.25\baselineskip plus .25\baselineskip}{1em plus 1fil} 
+%\pdfvariable imageresolution 72
+%\pdfpxdimen=2in    
+%\divide\pdfpxdimen by 300
+
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp} % provide euro and other symbols
+\usepackage[labelformat=empty,textfont={bf,it}]{caption}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+%\usepackage{varioref}
+\usepackage{booktabs}
+%\usepackage{endnotes}
+\usepackage{enotez}
+\DeclareInstance{enotez-list}{plain}{paragraph}{notes-sep=0pt}
+
+\usepackage{lipsum}
+
+\setenotez{
+  list-name=Notes,
+  backref=true,
+  list-style=plain
+}
+
+\DeclareInstance{enotez-list}{custom}{paragraph}
+{
+format = \footnotesize ,
+number = \textsuperscript{#1}
+}
+\let\footnote=\endnote
+%\usepackage{biblatex}
+%\usepackage{chapterbib}
+\usepackage{import}
+\usepackage{wrapfig}
+\usepackage{upquote}
+%\usepackage{bookmark}
+%\usepackage{hyperref}
+\usepackage{nicefrac}
+\usepackage[noabbrev]{cleveref}
+\usepackage[headsepline=true, autooneside=false]{scrlayer-scrpage}
+
+\pagestyle{scrheadings}
+
+\lohead{\leftmark}
+\cohead{}
+\rohead{\rightmark}
+
+\cofoot[]{}
+\rofoot[\pagemark]{\pagemark}
+
+\automark[section]{chapter}
+
+%\titlehead{Title Head Anglican Parish History Around Christ Church Murgon}
+%\subject{Anglican Parish History}
+\title{Anglican Parish History around Christ Church Murgon}
+\author{Marcia McIntosh}
+\date{1st January 2021}
+\uppertitleback{Printed By\\T J Printing Group\\42 King St, Deception Bay QLD 4508\\15 March 2021}
+\lowertitleback{This poem book was set with the help of {\KOMAScript} and {\LaTeX}}
+\dedication{\small In the spirit of reconciliation we acknowledge the Traditional Custodians of country throughout Australia and their connections to land, sea and community. We pay our respect to their elders past and present and extend that respect to all Aboriginal and Torres Strait Islander peoples today.}
+
+\begin{document}
+\maketitle
+\frontmatter
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\mainmatter
+\setcounter{page}{1}
+\import{./}{formatted-mainmatter.tex}
+\backmatter
+\end{document}
