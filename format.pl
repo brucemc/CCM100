@@ -47,8 +47,13 @@ while (<INFILE>) {
       $output .= "\\end{center}\n";
       $output .= "\\end{wrapfigure}\n";
     }
-    elsif ($pic_pos =~ "[bth]") {
-        $output .= "\\begin{figure}[!$pic_pos]\n";
+    elsif ($pic_pos =~ "[bthH]") {
+        if ($pic_pos eq "H") {
+          $output .= "\\begin{figure}[H]\n";
+        }
+        else {
+          $output .= "\\begin{figure}[!$pic_pos]\n";
+        }
         $output .= "\\begin{center}\n";
         #$output .= "\\pdfimageresolution=300\n";
         $output .= "\\includegraphics[width=$pic_width\\textwidth,center]{images/$file_name}\n";
@@ -80,6 +85,9 @@ while (<INFILE>) {
       }
     }
     $chapter += 1;
+    if ($line =~ /Appendicies/) {
+        $output .= "\\backmatter\n";
+    }
     $output .= $line;
   }
   else {
@@ -89,6 +97,8 @@ while (<INFILE>) {
 
 close INFILE;
 
-$output .= "\\printendnotes\n";
+if ($footnote_count > 0) {
+  $output .= "\\printendnotes\n";
+}
 
 print $output;

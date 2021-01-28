@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt,parskip=half,DIV=calc,chapterprefix=true,titlepage=true]{scrbook}
+\documentclass[a4paper,10pt,parskip=half,DIV=calc,chapterprefix=true,titlepage=true,open=any]{scrbook}
 %\setcounter{secnumdepth}{\chapternumdepth}
 \usepackage{mathptmx}% http://ctan.org/pkg/times
 %\usepackage[osf,sc]{mathpazo}% http://ctan.org/pkg/times
@@ -17,20 +17,40 @@
 \usepackage{textcomp} % provide euro and other symbols
 \usepackage[labelformat=empty,textfont={bf,it}]{caption}
 
+\usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[export]{adjustbox}
 \usepackage{graphicx}
+\usepackage{xcolor}
 %\usepackage{varioref}
 \usepackage{booktabs}
 %\usepackage{endnotes}
 \usepackage{enotez}
-\DeclareInstance{enotez-list}{plain}{paragraph}{notes-sep=0pt}
-
+\usepackage[english]{babel}
+\usepackage{blindtext}
 \usepackage{lipsum}
 
+%\usepackage[showframe]{geometry}
+
+%\definecolor{chaptergrey}{rgb}{0.7,0.7,0.7}
+%
+%\let\raggedchapter\raggedleft
+%\addtokomafont{disposition}{\normalfont}
+%\setkomafont{chapter}{\LARGE}
+%
+%\renewcommand*{\chapterformat}{%
+%\scalebox{5}{\color{chaptergrey}\thechapter}%
+%}
+%\renewcommand*{\chaptermarkformat}{\thechapter\autodot\enskip}%
+
+\DeclareInstance{enotez-list}{plain}{paragraph}{notes-sep=0pt}
+
+
 \setenotez{
+  reset=true,
   list-name=Notes,
+  list-heading = \section*{#1},
   backref=true,
   list-style=plain
 }
@@ -65,23 +85,102 @@ number = \textsuperscript{#1}
 
 %\titlehead{Title Head Anglican Parish History Around Christ Church Murgon}
 %\subject{Anglican Parish History}
-\title{Anglican Parish History around Christ Church Murgon}
-\author{Marcia McIntosh}
-\date{1st January 2021}
+%\title{Anglican Parish History around Christ Church Murgon}
+%\author{Marcia McIntosh}
+%\date{1st January 2021}
 \uppertitleback{Printed By\\T J Printing Group\\42 King St, Deception Bay QLD 4508\\15 March 2021}
-\lowertitleback{This poem book was set with the help of {\KOMAScript} and {\LaTeX}}
+\lowertitleback{This book was set with the help of {\KOMAScript} and {\LaTeX}}
 \dedication{\small In the spirit of reconciliation we acknowledge the Traditional Custodians of country throughout Australia and their connections to land, sea and community. We pay our respect to their elders past and present and extend that respect to all Aboriginal and Torres Strait Islander peoples today.}
 
 \begin{document}
-\maketitle
+%\begin{titlepage}
+%  \vspace*{1cm}
+%  {\huge\raggedright The Book\par}
+%  \noindent\hrulefill\par
+%  {\LARGE\raggedleft The Author\par}
+%  \vfill
+%  {\Large\raggedleft Institute\par}
+%\end{titlepage}
+
+
+\begin{titlepage}
+  \null\vfill
+  \begin{center}
+    \vskip 1em
+    {%
+      \usekomafont{title}{\Huge
+        Christ Church Murgon% <- title
+      \par}%
+    }%
+    \vskip 2em
+    {%
+      \usekomafont{subtitle}{%
+        Celebrating 100 Years of Anglican Parish History% <- subtitle
+      \par}%
+    }%
+    \vfill
+    {%
+      \usekomafont{author}{%
+          Marcia McIntosh% <- author
+      \par}%
+    }%
+    \vskip 1.5em
+    {\usekomafont{date}{\small \today \par}}%
+  \end{center}
+  \clearpage
+  \thispagestyle{empty}
+  \noindent\begin{minipage}[t]{\textwidth}
+   {\small Printed By:\\T J Printing Group\\42 King St, Deception Bay QLD 4508\par \vskip 1.5em \today \par}
+  \end{minipage}\par
+  \vfill
+  \noindent\begin{minipage}[b]{\textwidth}
+  {\small This book was set with the help of {\KOMAScript} and {\LaTeX}}
+  \end{minipage}\par
+
+  \clearpage
+  \thispagestyle{empty}
+  \par\vspace*{.45\textheight}
+  \noindent\begin{minipage}[b]{\textwidth}
+  \begin{center}
+    {\small In the spirit of reconciliation we acknowledge the Traditional Custodians
+            of country throughout Australia and their connections to land, sea and community.
+            We pay our respect to their elders past and present and extend that respect to all
+            Aboriginal and Torres Strait Islander peoples today.}
+  \end{center}
+  \end{minipage}\par
+\end{titlepage}
+
+
+\newpage
+
+
 \frontmatter
 
 {
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+
+%\newpage
+%\cleardoublepage
+\chapter{Preface}
+\blindtext
+
+%\newpage
+%\cleardoublepage
+\chapter{Foreword}
+\blindtext
+
+
 \mainmatter
 \setcounter{page}{1}
+
+\chapter{Introduction}
+\blindtext
+
 \import{./}{formatted-mainmatter.tex}
-\backmatter
+
+%\backmatter
+%\chapter{Apendicies}
+\blindtext
 \end{document}
