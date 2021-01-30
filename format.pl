@@ -29,6 +29,32 @@ while (<INFILE>) {
   }
   elsif ($line =~ /caption\\{(.*)\\}/) {
     $caption   = $1;
+    if ($pic_pos eq "h") {
+      $output .= "\\begin{figure*}[!htb]\n";
+    }
+    else {
+      $output .= "\\begin{figure}\n";
+    }
+    $output .= "\\begin{center}\n";
+    if ($pic_pos eq "h") {
+      $output .= "\\includegraphics[width=$pic_width\\textwidth,center]{images/$file_name}\n";
+    }
+    else {
+      $output .= "\\includegraphics[width=$pic_width\\textwidth,center]{images/$file_name}\n";
+    }
+    if ($caption ne "") {
+      $output .= "\\caption{$caption}\n";
+    }
+    $output .= "\\end{center}\n";
+    if ($pic_pos eq "h") {
+      $output .= "\\end{figure*}\n";
+    }
+    else {
+      $output .= "\\end{figure}\n";
+    }
+  }
+  elsif ($line =~ /caption\\{(.*)\\}/) {
+    $caption   = $1;
     #print "$file_name $pic_width $pic_pos $caption\n";
 
     if ($pic_width eq "") {

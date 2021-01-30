@@ -2,6 +2,7 @@ pandoc ^
      book.docx ^
   -o mainmatter.tex ^
   --variable documentclass=book ^
+  --wrap=none ^
   --reference-location=section ^
   --toc ^
   -N 

@@ -1,35 +1,28 @@
-\documentclass[a4paper,12pt,parskip=half,DIV=12,chapterprefix=true,titlepage=true,oneside,open=any]{scrbook}
-%\setcounter{secnumdepth}{\chapternumdepth}
-%\usepackage{mathptmx}% http://ctan.org/pkg/times
+\documentclass[a4paper,12pt,parskip=half,DIV=13,chapterprefix=true,titlepage=true,oneside,twocolumn,open=any]{scrbook}
+\usepackage{mathptmx}% http://ctan.org/pkg/times
 %\usepackage[osf,sc]{mathpazo}% http://ctan.org/pkg/times
-\usepackage[sc]{mathpazo}% http://ctan.org/pkg/times
+%\usepackage[sc]{mathpazo}% http://ctan.org/pkg/times
 \linespread{1.05}
-%\renewcommand*{\sectionformat}{}
 \setcounter{secnumdepth}{0}
 \renewcommand*\sectfont{\normalcolor\bfseries}% removed \sffamily
 \setparsizes{1em}{0.25\baselineskip plus .25\baselineskip}{1em plus 1fil} 
-%\pdfvariable imageresolution 72
-%\pdfpxdimen=2in    
-%\divide\pdfpxdimen by 300
-
-%\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp} % provide euro and other symbols
-\usepackage[labelformat=empty,textfont={bf,it}]{caption}
-
+\usepackage[labelformat=empty,font=small]{caption}
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[export]{adjustbox}
 \usepackage{graphicx}
 \usepackage{xcolor}
-%\usepackage{varioref}
 \usepackage{booktabs}
-%\usepackage{endnotes}
 \usepackage{enotez}
 \usepackage[english]{babel}
 \usepackage{blindtext}
 \usepackage{lipsum}
+\setlength{\columnsep}{.7cm}
+\addtokomafont{section}{\normalsize}
+\addtokomafont{subsection}{\normalsize}
 
 %\usepackage[showframe]{geometry}
 %\usepackage{geometry}
@@ -37,17 +30,6 @@
 %  a4, % <===============================================================
 %  axes,cross,pdftex,center
 %]{crop}
-
-%\definecolor{chaptergrey}{rgb}{0.7,0.7,0.7}
-%
-%\let\raggedchapter\raggedleft
-%\addtokomafont{disposition}{\normalfont}
-%\setkomafont{chapter}{\LARGE}
-%
-%\renewcommand*{\chapterformat}{%
-%\scalebox{5}{\color{chaptergrey}\thechapter}%
-%}
-%\renewcommand*{\chaptermarkformat}{\thechapter\autodot\enskip}%
 
 \DeclareInstance{enotez-list}{plain}{paragraph}{notes-sep=0pt}
 
@@ -62,7 +44,9 @@
 
 \DeclareInstance{enotez-list}{custom}{paragraph}
 {
-format = \footnotesize ,
+%format = \small ,
+%format = \footnotesize ,
+format = \scriptsize ,
 %format = \tiny ,
 notes-sep=0pt,
 number = \textsuperscript{#1}
@@ -90,25 +74,7 @@ number = \textsuperscript{#1}
 
 \automark[section]{chapter}
 
-%\titlehead{Title Head Anglican Parish History Around Christ Church Murgon}
-%\subject{Anglican Parish History}
-%\title{Anglican Parish History around Christ Church Murgon}
-%\author{Marcia McIntosh}
-%\date{1st January 2021}
-\uppertitleback{Printed By\\T J Printing Group\\42 King St, Deception Bay QLD 4508\\15 March 2021}
-\lowertitleback{This book was set with the help of {\KOMAScript} and {\LaTeX}}
-\dedication{\small In the spirit of reconciliation we acknowledge the Traditional Custodians of country throughout Australia and their connections to land, sea and community. We pay our respect to their elders past and present and extend that respect to all Aboriginal and Torres Strait Islander peoples today.}
-
 \begin{document}
-%\begin{titlepage}
-%  \vspace*{1cm}
-%  {\huge\raggedright The Book\par}
-%  \noindent\hrulefill\par
-%  {\LARGE\raggedleft The Author\par}
-%  \vfill
-%  {\Large\raggedleft Institute\par}
-%\end{titlepage}
-
 
 \begin{titlepage}
   \null\vfill
