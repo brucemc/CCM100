@@ -1,8 +1,8 @@
-\documentclass[a4paper,10pt,parskip=half,DIV=calc,chapterprefix=true,titlepage=true,open=any]{scrbook}
+\documentclass[a4paper,12pt,parskip=half,DIV=12,chapterprefix=true,titlepage=true,oneside,open=any]{scrbook}
 %\setcounter{secnumdepth}{\chapternumdepth}
-\usepackage{mathptmx}% http://ctan.org/pkg/times
+%\usepackage{mathptmx}% http://ctan.org/pkg/times
 %\usepackage[osf,sc]{mathpazo}% http://ctan.org/pkg/times
-%\usepackage[sc]{mathpazo}% http://ctan.org/pkg/times
+\usepackage[sc]{mathpazo}% http://ctan.org/pkg/times
 \linespread{1.05}
 %\renewcommand*{\sectionformat}{}
 \setcounter{secnumdepth}{0}
@@ -32,6 +32,11 @@
 \usepackage{lipsum}
 
 %\usepackage[showframe]{geometry}
+%\usepackage{geometry}
+%\usepackage[%
+%  a4, % <===============================================================
+%  axes,cross,pdftex,center
+%]{crop}
 
 %\definecolor{chaptergrey}{rgb}{0.7,0.7,0.7}
 %
@@ -58,6 +63,8 @@
 \DeclareInstance{enotez-list}{custom}{paragraph}
 {
 format = \footnotesize ,
+%format = \tiny ,
+notes-sep=0pt,
 number = \textsuperscript{#1}
 }
 \let\footnote=\endnote
@@ -76,7 +83,7 @@ number = \textsuperscript{#1}
 
 \lohead{\leftmark}
 \cohead{}
-\rohead{\rightmark}
+\rohead{}
 
 \cofoot[]{}
 \rofoot[\pagemark]{\pagemark}
@@ -121,7 +128,7 @@ number = \textsuperscript{#1}
     \vfill
     {%
       \usekomafont{author}{%
-          Marcia McIntosh% <- author
+          Compiled By Marcia McIntosh% <- author
       \par}%
     }%
     \vskip 1.5em

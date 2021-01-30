@@ -79,7 +79,7 @@ while (<INFILE>) {
   elsif ($line =~ /\\chapter/) {
     if ($chapter > 0) {
       if ($footnote_count > 0) {
-        $output .= "\\printendnotes\n";
+        $output .= "\\printendnotes[custom]\n";
         $output .= "\\setcounter{endnote}{0}\n";
         $footnote_count = 0;
       }
@@ -98,7 +98,7 @@ while (<INFILE>) {
 close INFILE;
 
 if ($footnote_count > 0) {
-  $output .= "\\printendnotes\n";
+  $output .= "\\printendnotes[custom]\n";
 }
 
 print $output;
