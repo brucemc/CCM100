@@ -104,6 +104,7 @@ while (<INFILE>) {
   }
   elsif ($line =~ /\\chapter/) {
     if ($chapter > 0) {
+      $output .= "\\balance\n";
       if ($footnote_count > 0) {
         $output .= "\\printendnotes[custom]\n";
         $output .= "\\setcounter{endnote}{0}\n";
@@ -115,6 +116,7 @@ while (<INFILE>) {
         $output .= "\\backmatter\n";
     }
     $output .= $line;
+    $output .= "\\nobalance\n";
   }
   else {
     $output .= $line;
