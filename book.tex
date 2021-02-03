@@ -24,6 +24,7 @@
 \addtokomafont{section}{\normalsize}
 \addtokomafont{subsection}{\normalsize}
 \usepackage{balance}
+\usepackage{makeidx}
 
 %\usepackage[showframe]{geometry}
 %\usepackage{geometry}
@@ -63,6 +64,8 @@ number = \textsuperscript{#1}
 \usepackage{nicefrac}
 \usepackage[noabbrev]{cleveref}
 \usepackage[headsepline=true, autooneside=false]{scrlayer-scrpage}
+
+\makeindex
 
 \pagestyle{scrheadings}
 
@@ -152,9 +155,9 @@ number = \textsuperscript{#1}
 \chapter{Introduction}
 \blindtext
 
-\import{./}{formatted-mainmatter.tex}
+\import{./}{formatted-mainmatter-idx.tex}
 
 %\backmatter
 %\chapter{Apendicies}
-\blindtext
+\printindex
 \end{document}

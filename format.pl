@@ -14,20 +14,20 @@ while (<INFILE>) {
   my $line = $_;
   $line =~ s/£/\\pounds/g;
   $line =~ s/½/\\nicefrac{1}{2}/g;
-  $line =~ s/\\label{.*}}.*//;
+  $line =~ s/\\label\{.*}}.*//;
   #$line =~ s/\\section/\\section*/;
   #$line =~ s/\\footnote/\\endnote/g;
 
-  if ($line =~ /file\\{(.*)\\}/) {
+  if ($line =~ /file\\\{(.*)\\}/) {
     $file_name = $1;
   }
-  elsif ($line =~ /width\\{(.*)\\}/) {
+  elsif ($line =~ /width\\\{(.*)\\}/) {
     $pic_width = $1;
   }
-  elsif ($line =~ /position\\{(.*)\\}/) {
+  elsif ($line =~ /position\\\{(.*)\\}/) {
     $pic_pos   = $1;
   }
-  elsif ($line =~ /caption\\{(.*)\\}/) {
+  elsif ($line =~ /caption\\\{(.*)\\}/) {
     $caption   = $1;
     if ($pic_pos eq "h") {
       $output .= "\\begin{figure*}[!htb]\n";

@@ -8,6 +8,7 @@ pandoc ^
   -N 
 
 perl format.pl > formatted-mainmatter.tex
+perl format_idx.pl > formatted-mainmatter-idx.tex
 
 xelatex book.tex
 

@@ -6,3 +6,7 @@
 *.aux
 *.swp
 *.pdf
+*.idx
+*.ilg
+*.ind
+~*
