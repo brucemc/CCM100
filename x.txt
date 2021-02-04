@@ -1,5 +1,0 @@
-file{serviceRegisterAug1967.jpg}
-width{.7}
-position{h}
-caption{Service Register August 1967}
-
