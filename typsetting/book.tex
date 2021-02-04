@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,parskip=half,DIV=13,chapterprefix=true,titlepage=true,oneside,twocolumn,open=any]{scrbook}
+\documentclass[a4paper,12pt,parskip=half,DIV=8,chapterprefix=true,titlepage=true,oneside,twocolumn,open=any]{scrbook}
 \usepackage{mathptmx}% http://ctan.org/pkg/times
 %\usepackage[osf,sc]{mathpazo}% http://ctan.org/pkg/times
 %\usepackage[sc]{mathpazo}% http://ctan.org/pkg/times
@@ -25,6 +25,12 @@
 \addtokomafont{subsection}{\normalsize}
 \usepackage{balance}
 \usepackage{makeidx}
+%\usepackage{showframe}
+%\usepackage[showframe]{geometry}
+\usepackage{geometry}
+\AfterCalculatingTypearea{\geometry{margin=2cm,top=3cm,bottom=3cm,bindingoffset=6mm}}
+%\AfterCalculatingTypearea{\geometry{margin=2.5cm,top=5cm,bottom=5cm,bindingoffset=12mm,nofoot}}
+\recalctypearea
 
 %\usepackage[showframe]{geometry}
 %\usepackage{geometry}

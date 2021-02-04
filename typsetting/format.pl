@@ -1,6 +1,7 @@
 use strict;
 
 my $output = "";
+my @chap_lines = ();
 my $caption = "";
 my $file_name = "";
 my $pic_width = "";
@@ -29,82 +30,58 @@ while (<INFILE>) {
   }
   elsif ($line =~ /caption\\\{(.*)\\}/) {
     $caption   = $1;
-    if ($pic_pos eq "h") {
-      $output .= "\\begin{figure*}[!htb]\n";
+    my $fig = "";
+    if ($pic_pos eq "p") {
+      $fig .= "\\begin{figure*}[!htb]\n";
     }
     else {
-      $output .= "\\begin{figure}\n";
+      $fig .= "\\begin{figure}\n";
     }
-    $output .= "\\begin{center}\n";
-    if ($pic_pos eq "h") {
-      $output .= "\\includegraphics[width=$pic_width\\textwidth,center]{../images/$file_name}\n";
+    $fig .= "\\begin{center}\n";
+    if ($pic_pos eq "p") {
+      $fig .= "\\includegraphics[width=$pic_width\\textwidth,center]{../images/$file_name}\n";
     }
     else {
-      $output .= "\\includegraphics[width=$pic_width\\textwidth,center]{../images/$file_name}\n";
+      $fig .= "\\includegraphics[width=$pic_width\\linewidth,center]{../images/$file_name}\n";
     }
     if ($caption ne "") {
-      $output .= "\\caption{$caption}\n";
+      $fig .= "\\caption{$caption}\n";
     }
-    $output .= "\\end{center}\n";
-    if ($pic_pos eq "h") {
-      $output .= "\\end{figure*}\n";
+    $fig .= "\\end{center}\n";
+    if ($pic_pos eq "p") {
+      $fig .= "\\end{figure*}\n";
     }
     else {
-      $output .= "\\end{figure}\n";
+      $fig .= "\\end{figure}\n";
     }
-  }
-  elsif ($line =~ /caption\\{(.*)\\}/) {
-    $caption   = $1;
-    #print "$file_name $pic_width $pic_pos $caption\n";
-
-    if ($pic_width eq "") {
-      $pic_width = "0.5";
-    }
-
-    if ($pic_pos =~ "[RL]") {
-      $output .= "\\begin{wrapfigure}{$pic_pos}{$pic_width\\textwidth}\n";
-      $output .= "\\begin{center}\n";
-      $pic_width = $pic_width - 0.02;
-      #$output .= "\\pdfimageresolution=300\n";
-      $output .= "\\includegraphics[width=$pic_width\\textwidth,right]{images/$file_name}\n";
-      if ($caption ne "") {
-        $output .= "\\caption{$caption}\n";
-      }
-      $output .= "\\end{center}\n";
-      $output .= "\\end{wrapfigure}\n";
-    }
-    elsif ($pic_pos =~ "[bthH]") {
-        if ($pic_pos eq "H") {
-          $output .= "\\begin{figure}[H]\n";
-        }
-        else {
-          $output .= "\\begin{figure}[!$pic_pos]\n";
-        }
-        $output .= "\\begin{center}\n";
-        #$output .= "\\pdfimageresolution=300\n";
-        $output .= "\\includegraphics[width=$pic_width\\textwidth,center]{images/$file_name}\n";
-        if ($caption ne "") {
-          $output .= "\\caption{$caption}\n";
-        }
-        $output .= "\\end{center}\n";
-        $output .= "\\end{figure}\n";
-    }
-    $caption = "";
-    $file_name = "";
-    $pic_pos = "";
-    $pic_width = "";
+    push @chap_lines, $fig;
   }
   elsif ($line =~ /\\includegraphics/) {
   }
   elsif ($line =~ /\\hypertarget/) {
   }
   elsif ($line =~ /\\footnote/) {
-    $output .= $line;
+    push @chap_lines, $line;
     $footnote_count += 1;
   }
   elsif ($line =~ /\\chapter/) {
+    my $lines = @chap_lines;
+    my $count = 0;
+    my $balance = 0;
+    my $l = "";
+    foreach $l (@chap_lines) {
+      $output .= $l;
+      $count = $count + 1;
+      if ($count > $lines - 2) {
+        if ($chapter > 0 && $balance eq 0) {
+         $output .= "\\balance\n";
+         $balance = 1;
+        }
+      }
+    }
+    @chap_lines = ();
     if ($chapter > 0) {
-      $output .= "\\balance\n";
+      #$output .= "\\balance\n";
       if ($footnote_count > 0) {
         $output .= "\\printendnotes[custom]\n";
         $output .= "\\setcounter{endnote}{0}\n";
@@ -119,9 +96,24 @@ while (<INFILE>) {
     $output .= "\\nobalance\n";
   }
   else {
-    $output .= $line;
+    push @chap_lines, $line;
   }
 }
+my $lines = @chap_lines;
+my $count = 0;
+my $balance = 0;
+my $l = "";
+foreach $l (@chap_lines) {
+  $output .= $l;
+  $count = $count + 1;
+  if ($count > $lines - 2) {
+    if ($chapter > 0 && $balance eq 0) {
+      $output .= "\\balance\n";
+      $balance = 1;
+    }
+  }
+}
+@chap_lines = ();
 
 close INFILE;
 
