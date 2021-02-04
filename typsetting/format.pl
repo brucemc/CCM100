@@ -37,10 +37,10 @@ while (<INFILE>) {
     }
     $output .= "\\begin{center}\n";
     if ($pic_pos eq "h") {
-      $output .= "\\includegraphics[width=$pic_width\\textwidth,center]{images/$file_name}\n";
+      $output .= "\\includegraphics[width=$pic_width\\textwidth,center]{../images/$file_name}\n";
     }
     else {
-      $output .= "\\includegraphics[width=$pic_width\\textwidth,center]{images/$file_name}\n";
+      $output .= "\\includegraphics[width=$pic_width\\textwidth,center]{../images/$file_name}\n";
     }
     if ($caption ne "") {
       $output .= "\\caption{$caption}\n";
