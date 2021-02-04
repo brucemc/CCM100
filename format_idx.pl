@@ -1,11 +1,25 @@
 use strict;
 
+my @places;
+my $place = "";
+
+open(PLACES, "< places.txt") or die "Cannot open file\n";
+
+while (<PLACES>) {
+  $place = $_;
+  $place =~ s/[^\w]//g;
+  push @places, $place;
+}
+
+close PLACES;
+
 my $output = "";
 
 open(INFILE, "< formatted-mainmatter.tex") or die "Cannot open file\n";
 
 while (<INFILE>) {
   my $line = $_;
+
 
   if ($line =~ /\\chapter/) {
     $output .= $line;
@@ -20,6 +34,9 @@ while (<INFILE>) {
     $output .= $line;
   }
   else {
+    foreach $place (@places) {
+      $line =~ s/$place/$place\\index{$place}/g;
+    }
 
     if ($line =~ /Tatham/) {
       $line =~ s/Tatham/Tatham\\index{Tatham, G J}/;
@@ -42,8 +59,8 @@ while (<INFILE>) {
     if ($line =~ /C C H James/ || $line =~ /Rev[ CH]*James/) {
       $line =~ s/James/James\\index{James, C C H}/;
     }
-    if ($line =~ /Lee.*Warner/ || $line =~ /Rev[ Le]*Warner/) {
-      $line =~ s/Warner/Warner\\index{Lee-Warner, J}/;
+    if ($line =~ /Lee Warner/ || $line =~ /Rev[ Le]*Warner/) {
+      $line =~ s/Warner/Warner\\index{Warner, Lee}/;
     }
     if ($line =~ /Shand/ || $line =~ /Rev[ RWa-z]*Shand/) {
       $line =~ s/Shand/Shand\\index{Shand, R W}/;
