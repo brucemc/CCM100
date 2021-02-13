@@ -22,6 +22,30 @@ while (<INFILE>) {
   if ($line =~ /file\\\{(.*)\\}/) {
     $file_name = $1;
   }
+  elsif ($line =~ /Smallskip$/) {
+    my $skip = "\\smallskip\n";
+    push @chap_lines, $skip;
+  }
+  elsif ($line =~ /Medskip$/) {
+    my $skip = "\\medskip\n";
+    push @chap_lines, $skip;
+  }
+  elsif ($line =~ /Dictum\\\{(.*)\\}\\\{(.*)\\}$/) {
+    my $s = $1;
+    my $t = $2;
+    $t =~ s/\/\//\\linebreak /g;
+    my $dict = "\\setchapterpreamble[o]{\n";
+    $dict .= "\\dictum[$s]{$t}}\n";
+    push @chap_lines, $dict;
+  }
+  elsif ($line =~ /Drop\\\{(.)(.*)\\}(.*)$/) {
+    my $let = $1;
+    my $text = uc $2;
+    my $rest = $3;
+    my $drop .= "\\lettrine[lines=3]{$let}{$text}\n";
+    push @chap_lines, $drop;
+    push @chap_lines, $rest;
+  }
   elsif ($line =~ /width\\\{(.*)\\}/) {
     $pic_width = $1;
   }

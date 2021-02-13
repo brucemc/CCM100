@@ -13,6 +13,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{lettrine}
 \usepackage[export]{adjustbox}
 \usepackage{graphicx}
 \usepackage{xcolor}
@@ -29,6 +30,9 @@
 %\usepackage{showframe}
 %\usepackage[showframe]{geometry}
 \usepackage{geometry}
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
 \AfterCalculatingTypearea{\geometry{margin=2cm,top=3cm,bottom=3.5cm,bindingoffset=6mm}}
 %\AfterCalculatingTypearea{\geometry{margin=2.5cm,top=5cm,bottom=5cm,bindingoffset=12mm,nofoot}}
 \recalctypearea
@@ -41,6 +45,7 @@
 %]{crop}
 
 \DeclareInstance{enotez-list}{plain}{paragraph}{notes-sep=0pt}
+\LettrineRealHeighttrue
 
 
 \setenotez{
@@ -76,9 +81,9 @@ number = \textsuperscript{#1}
 
 \pagestyle{scrheadings}
 
-\lohead{}
+\lohead{\leftmark}
 \cohead{}
-\rohead{\leftmark}
+\rohead{}
 
 \cofoot[]{}
 \rofoot[\pagemark]{\pagemark}
@@ -133,13 +138,9 @@ number = \textsuperscript{#1}
   \end{center}
   \end{minipage}\par
 \end{titlepage}
-
-
+\newpage
 \onecolumn
-
-
 \frontmatter
-
 {
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -147,16 +148,30 @@ number = \textsuperscript{#1}
 
 %\newpage
 %\cleardoublepage
+\setchapterpreamble[o]{
+\dictum[Psalm 56:3]{But when I am afraid,\linebreak I will put my trust in you.}}
+
 \chapter{Preface}
-Christ Church Anglican Church, Murgon has stood proudly at the intersection of Taylor and Watt Streets since its construction in the latter months of 1919 though the history of Anglicanism in the region extends much further back than this date.  A building is simply a physical structure to serve as a central bonding place of communal worship and of fellowship, mutual support and growth in faith for ``The Church''.  The people who worship our Lord are God’s Kingdom on earth.  Resilient pioneering settlers of the Murgon district felt the need for a permanent place of worship.  Accordingly, the telling of the story of this building cannot be divorced from the events of the world during this historic period, and much less so from the story of the people who brought both it and the town of Murgon into being and who have served God and the community from the mid-1840s through the decades to where we are now.
+
+\lettrine[lines=3]{C}{HRIST} Church Murgon, Anglican Church has stood proudly at the intersection of
+Taylor and Watt Streets since its construction in the latter months of 1919 though
+the history of Anglicanism in the region extends much further back than this date.
+A building is simply a physical structure to serve as a central bonding place of
+communal worship and of fellowship, mutual support and growth in faith for ``The Church''.
+The people who worship our Lord are God's Kingdom on earth.
+Resilient pioneering settlers of the Murgon district felt the need for a permanent place of
+worship.  Accordingly, the telling of the story of this building cannot be divorced from
+the events of the world during this historic period, and much less so from the story of
+the people who brought both it and the town of Murgon into being and who have served
+God and the community from the mid-1840s through the decades to where we are now.
 
 %\newpage
 %\cleardoublepage
 \chapter{Foreword}
 \blindtext
 
-
 \twocolumn
+
 \mainmatter
 \setcounter{page}{1}
 

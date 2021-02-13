@@ -33,6 +33,9 @@ while (<INFILE>) {
   elsif ($line =~ /\\includegraphics/) {
     $output .= $line;
   }
+  elsif ($line =~ /\\lettrine/) {
+    $output .= $line;
+  }
   else {
     foreach $place (@places) {
       $line =~ s/$place/$place\\index{$place}/g;
@@ -60,7 +63,7 @@ while (<INFILE>) {
       $line =~ s/James/James\\index{James, C C H}/;
     }
     if ($line =~ /Lee Warner/ || $line =~ /Rev[ Le]*Warner/) {
-      $line =~ s/Warner/Warner\\index{Warner, Lee}/;
+      $line =~ s/Warner/Warner\\index{Lee-Warner, J}/;
     }
     if ($line =~ /Shand/ || $line =~ /Rev[ RWa-z]*Shand/) {
       $line =~ s/Shand/Shand\\index{Shand, R W}/;
