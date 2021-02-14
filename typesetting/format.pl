@@ -22,6 +22,10 @@ while (<INFILE>) {
   if ($line =~ /file\\\{(.*)\\}/) {
     $file_name = $1;
   }
+  elsif ($line =~ /Para$/) {
+    my $skip = "\n";
+    push @chap_lines, $skip;
+  }
   elsif ($line =~ /Smallskip$/) {
     my $skip = "\\smallskip\n";
     push @chap_lines, $skip;
@@ -120,7 +124,7 @@ while (<INFILE>) {
     $output .= "\\nobalance\n";
   }
   else {
-    push @chap_lines, $line;
+    push @chap_lines, "$line\n";
   }
 }
 my $lines = @chap_lines;
