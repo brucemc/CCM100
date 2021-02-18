@@ -61,26 +61,35 @@ while (<INFILE>) {
     my $fig = "";
     if ($pic_pos eq "p") {
       $fig .= "\\begin{figure*}[!htb]\n";
-    }
-    else {
-      $fig .= "\\begin{figure}\n";
-    }
-    $fig .= "\\begin{center}\n";
-    if ($pic_pos eq "p") {
+      $fig .= "\\begin{center}\n";
       $fig .= "\\includegraphics[width=$pic_width\\textwidth,center]{../images/$file_name}\n";
-    }
-    else {
-      $fig .= "\\includegraphics[width=$pic_width\\linewidth,center]{../images/$file_name}\n";
-    }
-    if ($caption ne "") {
-      $fig .= "\\caption{$caption}\n";
-    }
-    $fig .= "\\end{center}\n";
-    if ($pic_pos eq "p") {
+      if ($caption ne "") {
+        $fig .= "\\caption{$caption}\n";
+      }
+      $fig .= "\\end{center}\n";
       $fig .= "\\end{figure*}\n";
     }
-    else {
+    elsif ($pic_pos eq "c") {
+      $fig .= "\\begin{figure}\n";
+      $fig .= "\\begin{center}\n";
+      $fig .= "\\includegraphics[width=$pic_width\\linewidth,center]{../images/$file_name}\n";
+      if ($caption ne "") {
+        $fig .= "\\caption{$caption}\n";
+      }
+      $fig .= "\\end{center}\n";
       $fig .= "\\end{figure}\n";
+    }
+    elsif ($pic_pos eq "ch") {
+      $fig .= "\\medskip\n";
+      $fig .= "\\begin{minipage}[b]{\\linewidth}\n";
+      $fig .= "\\begin{center}\n";
+      $fig .= "\\includegraphics[width=$pic_width\\linewidth,center]{../images/$file_name}\n";
+      if ($caption ne "") {
+        $fig .= "\\captionof{figure}{$caption}\n";
+      }
+      $fig .= "\\end{center}\n";
+      $fig .= "\\end{minipage}\n";
+      $fig .= "\\medskip\n";
     }
     push @chap_lines, $fig;
   }

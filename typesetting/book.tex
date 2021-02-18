@@ -11,6 +11,7 @@
 \usepackage{textcomp} % provide euro and other symbols
 \usepackage[labelformat=empty,font=small]{caption}
 \usepackage{float}
+\usepackage{caption}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{lettrine}
@@ -176,7 +177,16 @@ God and the community from the mid-1840s through the decades to where we are now
 \setcounter{page}{1}
 
 \chapter{Introduction}
+
 \blindtext
+\par
+
+\begin{minipage}[b]{\linewidth}
+\begin{center}
+\includegraphics[width=1.\linewidth,center]{../images/theAustralianHymnBook.jpg}
+\end{center}
+\end{minipage}\par
+
 
 \import{./}{formatted-mainmatter-idx.tex}
 
