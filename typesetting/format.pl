@@ -22,6 +22,10 @@ while (<INFILE>) {
   if ($line =~ /file\\\{(.*)\\}/) {
     $file_name = $1;
   }
+  elsif ($line =~ /HRule$/) {
+    my $skip = "\\noindent\\rule[0.5ex]{\\linewidth}{1pt}\n";
+    push @chap_lines, $skip;
+  }
   elsif ($line =~ /Para$/) {
     my $skip = "\n";
     push @chap_lines, $skip;
