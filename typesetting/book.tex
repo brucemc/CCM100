@@ -23,6 +23,8 @@
 \usepackage[english]{babel}
 \usepackage{blindtext}
 \usepackage{lipsum}
+\usepackage{verse}
+\usepackage{bibleref}
 \setlength{\columnsep}{.7cm}
 \addtokomafont{section}{\normalsize}
 \addtokomafont{subsection}{\normalsize}
@@ -114,16 +116,27 @@ number = \textsuperscript{#1}
           Compiled By Marcia McIntosh% <- author
       \par}%
     }%
-    \vskip 1.5em
-    {\usekomafont{date}{\small \today \par}}%
+    %\vskip 1.5em
+    %{\usekomafont{date}{\small \today \par}}%
   \end{center}
   \clearpage
   \thispagestyle{empty}
   \noindent\begin{minipage}[t]{\textwidth}
-   {\small Printed By:\\T J Printing Group\\42 King St, Deception Bay QLD 4508\par \vskip 1.5em \today \par}
+   {\small Printed By:\\T J Printing Group\\42 King St, Deception Bay QLD 4508}
   \end{minipage}\par
   \vfill
   \noindent\begin{minipage}[b]{\textwidth}
+  \noindent\begin{minipage}[b]{.45\textwidth}%
+  \includegraphics[width=\linewidth,left]{../images/nlaLogo.jpg}
+  \end{minipage}%
+
+  \bigskip\noindent
+  ISBN 978-0-646-83551-8 	
+
+  \bigskip\noindent
+  \copyright{ }Marcia McIntosh, 2021
+
+  \bigskip\noindent
   {\small This book was set with the help of {\KOMAScript} and {\LaTeX}}
   \end{minipage}\par
 
@@ -140,41 +153,95 @@ number = \textsuperscript{#1}
   \end{minipage}\par
 \end{titlepage}
 %\newpage
-%\onecolumn
+\onecolumn
 \frontmatter
+
+%\setchapterpreamble[o]{
+%\dictum[Psalm 56:3]{But when I am afraid,\linebreak I will put my trust in you.}}
+
+%\cleardoublepage
+\chapter{Foreword}
+
+
+\lettrine[lines=3]{T}{HE} Centenary of the dedication of Christ Church Murgon is reason to pause and 
+give thanks to God for the ministry of the church in this place. Many stories 
+are recorded in this history compiled by Marcia McIntosh.
+\smallskip
+
+This sacred space, in which countless baptisms, weddings and funerals have taken 
+place over the years, as well as services of Morning and Evening Prayer and Holy 
+Communion, is held high in the affections of many people across the generations.  
+\smallskip
+
+Who can number the blessings that have flowed in people's lives because of the 
+ministry of Christ Church Murgon? Times of joy and times of sadness, all have been 
+held before God in the name of Christ, in the light of the gospel. The sacraments 
+of the church have incorporated and strengthened generations. 
+\smallskip
+
+We can but praise God for ministry in this place, for the people who have worshipped 
+here and for the clergy who have been called to serve here and lives which have 
+been renewed and restored here.
+
+\smallskip
+
+\noindent The words of Psalm 84 are apt:
+\smallskip
+
+\begin{center}
+\begin{minipage}[b]{.6\linewidth}%
+{\itshape
+\noindent 1 How lovely is your dwelling-place:\\
+\hphantom{MM}O Lord God of hosts!
+
+\noindent 2 My soul has a desire and longing\\
+\hphantom{MM}to enter the courts of the Lord:\\
+\hphantom{MM}my heart and my flesh rejoice in the living God.
+
+\noindent 3 The sparrow has found her a home,\\
+\hphantom{MM}and the swallow a nest where she may lay her young:\\
+\hphantom{MM}even your altar, O Lord of hosts,my King and my God.
+
+\noindent 4 Blessed are those who dwell in your house\\
+\hphantom{MM}they will always be praising you.
+}
+\end{minipage}%
+\end{center}
+
+
+\bigskip
+
+\noindent
+\begin{minipage}[b]{1.1\linewidth}%
+\begin{minipage}[b]{0.70\linewidth}%
+
+\hspace{1em}I commend to you this account of the generations who have encountered God through 
+Christ Church Murgon.
+
+\smallskip
+\hspace{1em}Thanks be to God for the enduring witness of so many faithful people who have worshipped here. 
+May transforming encounters with God in Christ continue in this place for many generations to come.
+
+\vspace{1cm}%
+\noindent The Most Reverend Dr Phillip Aspinall
+
+\vspace{5mm}%
+\noindent Archbishop of Brisbane
+\end{minipage}%
+\hspace{2em}
+\begin{minipage}[b]{.19\linewidth}%
+\begin{center}%
+\includegraphics[width=\linewidth,right]{../images/abpPhoto.jpg}
+\end{center}%
+\end{minipage}%
+\end{minipage}%
+
 {
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
 
-%\newpage
-%\cleardoublepage
-\setchapterpreamble[o]{
-\dictum[Psalm 56:3]{But when I am afraid,\linebreak I will put my trust in you.}}
-
-%\chapter{Preface}
-%
-%\lettrine[lines=3]{C}{HRIST} Church Murgon, Anglican Church has stood proudly at the intersection of
-%Taylor and Watt Streets since its construction in the latter months of 1919 though
-%the history of Anglicanism in the region extends much further back than this date.
-%A building is simply a physical structure to serve as a central bonding place of
-%communal worship and of fellowship, mutual support and growth in faith for ``The Church''.
-%The people who worship our Lord are God's Kingdom on earth.
-%Resilient pioneering settlers of the Murgon district felt the need for a permanent place of
-%worship.  Accordingly, the telling of the story of this building cannot be divorced from
-%the events of the world during this historic period, and much less so from the story of
-%the people who brought both it and the town of Murgon into being and who have served
-%God and the community from the mid-1840s through the decades to where we are now.
-
-%\newpage
-%\cleardoublepage
-\chapter{Foreword}
-\blindtext
-\blindtext
-\blindtext
-
 \twocolumn
-
 \mainmatter
 \setcounter{page}{1}
 
@@ -187,7 +254,7 @@ European settlers who arrived after the opening of the railway in 1903 - timber 
 selectors, business people - who all developed the town of Murgon and surrounding 
 districts. External factors - wars, depressions, weather conditions, advent of personal 
 ownership of the motor car, and changing societal responses to organised religious 
-observance – have influenced the role of the Murgon's Christ Church Anglican Church 
+observance - have influenced the role of the Murgon's Christ Church Anglican Church 
 in the Barambah Parish. 
 
 Murgon is a new town in comparison with its neighbours, Gayndah and Nanango. Murgon 
