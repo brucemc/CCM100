@@ -113,8 +113,26 @@ while (<INFILE>) {
     if ($line =~ /Bill Gedge/) {
       $line =~ s/Bill Gedge/Bill Gedge\\index{Gedge, Bill}/;
     }
+    if ($line =~ /the Kapernick's/) {
+      $line =~ s/the Kapernick's/the Kapernick's\\index{Kapernick, I (Mick)}\\index{Kapernick, Marion}/;
+    }
+    if ($line =~ /Ivor \(Mick\) and Marion Kapernick/) {
+      $line =~ s/Ivor \(Mick\) and Marion Kapernick/Ivor (Mick) and Marion Kapernick\\index{Kapernick, I (Mick)}\\index{Kapernick, Marion}/;
+    }
     if ($line =~ /Mick Kapernick/) {
       $line =~ s/Mick Kapernick/Mick Kapernick\\index{Kapernick, I (Mick)}/;
+    }
+    if ($line =~ /I Kapernick/) {
+      $line =~ s/I Kapernick/I Kapernick\\index{Kapernick, I (Mick)}/;
+    }
+    if ($line =~ /Ivor Douglas Kapernick/) {
+      $line =~ s/Ivor Douglas Kapernick/Ivor Douglas Kapernick\\index{Kapernick, I (Mick)}/;
+    }
+    if ($line =~ /Marion Kapernick/) {
+      $line =~ s/Marion Kapernick/Marion Kapernick\\index{Kapernick, Marion}/;
+    }
+    if ($line =~ /\(Mick\) Kapernick/) {
+      $line =~ s/\(Mick\) Kapernick/(Mick) Kapernick\\index{Kapernick, I (Mick)}/;
     }
     if ($line =~ /Ewen McIntosh/) {
       $line =~ s/Ewen McIntosh/Ewen McIntosh\\index{McIntosh, E B}/;
@@ -238,6 +256,92 @@ while (<INFILE>) {
     }
     if ($line =~ /Bernard Monz/) {
       $line =~ s/Bernard Monz/Bernard Monz\\index{Monz, Bernard}/;
+    }
+    if ($line =~ /D Hindley/) {
+      $line =~ s/D Hindley/D Hindley\\index{Hindley, Donna}/;
+    }
+    if ($line =~ /Donna Hindley/) {
+      $line =~ s/Donna Hindley/Donna Hindley\\index{Hindley, Donna}/;
+    }
+    if ($line =~ /L Steele/) {
+      $line =~ s/L Steele/L Steele\\index{Steele, Lynda}/;
+    }
+    if ($line =~ /Lynda Steele/) {
+      $line =~ s/Lynda Steele/Lynda Steele\\index{Steele, Lynda}/;
+    }
+    if ($line =~ /Fang Ling Quested/) {
+      $line =~ s/Fang Ling Quested/Fang Ling Quested\\index{Quested, Fang Ling}/;
+    }
+    if ($line =~ /Michael Quested/) {
+      $line =~ s/Michael Quested/Michael Quested\\index{Quested, Michael}/;
+    }
+    if ($line =~ /Murgon Mothers/) {
+      $line =~ s/Murgon Mothers/Murgon Mothers\\index{Mothers' Union}/;
+    }
+    if ($line =~ /Ladies' Guild/) {
+      $line =~ s/Ladies' Guild/Ladies' Guild\\index{Ladies' Guild}/;
+    }
+    elsif ($line =~ /Women's Guild/) {
+      $line =~ s/Women's Guild/Women's Guild\\index{Women's Guild}/;
+    }
+    elsif ($line =~ /Guild/) {
+      $line =~ s/Guild/Guild\\index{Ladies' Guild}/;
+    }
+    if ($line =~ /St David’s/) {
+      $line =~ s/St David’s/St David’s\\index{Boonara, St David’s Chruch}/;
+    }
+    if ($line =~ /Holy Spirit, Hivesville/) {
+      $line =~ s/Holy Spirit, Hivesville/Holy Spirit, Hivesville\\index{Hivesville, Church of the Holy Spirit}/;
+    }
+    if ($line =~ /Church of the Holy Spirit was blessed/) {
+      $line =~ s/Church of the Holy Spirit was blessed/Church of the Holy Spirit was blessed\\index{Hivesville, Church of the Holy Spirit}/;
+    }
+    if ($line =~ /the official opening of the Church of the Holy Spirit by Rev H Saull/) {
+      $line =~ s/the official opening of the Church of the Holy Spirit by Rev H Saull/the official opening of the Church of the Holy Spirit by Rev H Saull\\index{Hivesville, Church of the Holy Spirit}/;
+    }
+    if ($line =~ /Holy Spirit church at Cherbourg/) {
+      $line =~ s/Holy Spirit church at Cherbourg/Holy Spirit church at Cherbourg\\index{Cherbourg, Church of the Holy Spirit}/;
+    }
+    if ($line =~ /Holy Spirit Church, Cherbourg/) {
+      $line =~ s/Holy Spirit Church, Cherbourg/Holy Spirit Church, Cherbourg\\index{Cherbourg, Church of the Holy Spirit}/;
+    }
+    if ($line =~ /Holy Trinity, Woolloongabba/) {
+    }
+    elsif ($line =~ /Holy Trinity/) {
+      $line =~ s/Holy Trinity/Holy Trinity\\index{Windera, Church of the Holy Trinity}/;
+    }
+    if ($line =~ /St Matthew’s/) {
+      $line =~ s/St Matthew’s/St Matthew’s\\index{Kilkivan, St Matthew’s Church}/;
+    }
+    if ($line =~ /Pryce-Davies/) {
+      $line =~ s/Pryce-Davies/Pryce-Davies\\index{Pryce-Davies, John}/;
+    }
+    if ($line =~ /Rhonda Hunt/) {
+      $line =~ s/Rhonda Hunt/Rhonda Hunt\\index{Hunt, Rhonda}/;
+    }
+    if ($line =~ /Kerr/) {
+      $line =~ s/Kerr/Kerr\\index{Kerr, Ruth}/;
+    }
+    if ($line =~ /Dyson/) {
+      $line =~ s/Dyson/Dyson\\index{Dyson, Ron}/;
+    }
+    if ($line =~ /Aspinall/) {
+      $line =~ s/Aspinall/Aspinall\\index{Aspinall, Phillip}/;
+    }
+    if ($line =~ /Venables/) {
+      $line =~ s/Venables/Venables\\index{Venables, Cameron}/;
+    }
+    if ($line =~ /Nolan/) {
+      $line =~ s/Nolan/Nolan\\index{Nolan, Robert}/;
+    }
+    if ($line =~ /George Van/) {
+      $line =~ s/George Van/George Van\\index{Van, George}/;
+    }
+    if ($line =~ /George Arnell/) {
+      $line =~ s/George Arnell/George Arnell\\index{Arnell, George}/;
+    }
+    if ($line =~ /Arnott/) {
+      $line =~ s/Arnott/Arnott\\index{Arnott, Felix}/;
     }
     $output .= $line;
   }
