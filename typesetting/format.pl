@@ -26,6 +26,10 @@ while (<INFILE>) {
     my $skip = "\\noindent\\rule[0.5ex]{\\linewidth}{1pt}\n";
     push @chap_lines, $skip;
   }
+  elsif ($line =~ /Newpage$/) {
+    my $skip = "\\newpage\n";
+    push @chap_lines, $skip;
+  }
   elsif ($line =~ /Para$/) {
     my $skip = "\n";
     push @chap_lines, $skip;
@@ -68,7 +72,7 @@ while (<INFILE>) {
       $fig .= "\\begin{center}\n";
       $fig .= "\\includegraphics[width=$pic_width\\textwidth,center]{../images/$file_name}\n";
       if ($caption ne "") {
-        $fig .= "\\caption{$caption}\n";
+        $fig .= "\\caption{\\itshape $caption}\n";
       }
       $fig .= "\\end{center}\n";
       $fig .= "\\end{figure*}\n";
@@ -78,7 +82,7 @@ while (<INFILE>) {
       $fig .= "\\begin{center}\n";
       $fig .= "\\includegraphics[width=$pic_width\\linewidth,center]{../images/$file_name}\n";
       if ($caption ne "") {
-        $fig .= "\\caption{$caption}\n";
+        $fig .= "\\caption{\\itshape $caption}\n";
       }
       $fig .= "\\end{center}\n";
       $fig .= "\\end{figure}\n";
@@ -89,7 +93,7 @@ while (<INFILE>) {
       $fig .= "\\begin{center}\n";
       $fig .= "\\includegraphics[width=$pic_width\\linewidth,center]{../images/$file_name}\n";
       if ($caption ne "") {
-        $fig .= "\\captionof{figure}{$caption}\n";
+        $fig .= "\\captionof{figure}{\\itshape $caption}\n";
       }
       $fig .= "\\end{center}\n";
       $fig .= "\\end{minipage}\n";
@@ -113,7 +117,7 @@ while (<INFILE>) {
     foreach $l (@chap_lines) {
       $output .= $l;
       $count = $count + 1;
-      if ($count > $lines - 2) {
+      if ($count > $lines - 3) {
         if ($chapter > 0 && $balance eq 0) {
          $output .= "\\balance\n";
          $balance = 1;

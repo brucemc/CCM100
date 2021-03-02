@@ -26,6 +26,7 @@
 \usepackage{verse}
 \usepackage{bibleref}
 \setlength{\columnsep}{.7cm}
+\addtokomafont{title}{\Huge}
 \addtokomafont{section}{\normalsize}
 \addtokomafont{subsection}{\normalsize}
 \usepackage{balance}
@@ -39,6 +40,11 @@
 \AfterCalculatingTypearea{\geometry{margin=2cm,top=3cm,bottom=3.5cm,bindingoffset=6mm}}
 %\AfterCalculatingTypearea{\geometry{margin=2.5cm,top=5cm,bottom=5cm,bindingoffset=12mm,nofoot}}
 \recalctypearea
+
+\renewcommand\topfraction{0.85}
+\renewcommand\bottomfraction{0.85}
+\renewcommand\textfraction{0.1}
+\renewcommand\floatpagefraction{0.85}
 
 %\usepackage[showframe]{geometry}
 %\usepackage{geometry}
@@ -96,61 +102,94 @@ number = \textsuperscript{#1}
 \begin{document}
 
 \begin{titlepage}
-  \null\vfill
-  \begin{center}
-    \vskip 1em
-    {%
-      \usekomafont{title}{\Huge
-        Christ Church Murgon% <- title
-      \par}%
-    }%
-    \vskip 2em
-    {%
-      \usekomafont{subtitle}{%
-        Celebrating 100 Years of Anglican Parish History% <- subtitle
-      \par}%
-    }%
-    \vfill
-    {%
-      \usekomafont{author}{%
-          Compiled By Marcia McIntosh% <- author
-      \par}%
-    }%
-    %\vskip 1.5em
-    %{\usekomafont{date}{\small \today \par}}%
-  \end{center}
-  \clearpage
-  \thispagestyle{empty}
-  \noindent\begin{minipage}[t]{\textwidth}
-   {\small Printed By:\\T J Printing Group\\42 King St, Deception Bay QLD 4508}
-  \end{minipage}\par
-  \vfill
-  \noindent\begin{minipage}[b]{\textwidth}
-  \noindent\begin{minipage}[b]{.45\textwidth}%
-  \includegraphics[width=\linewidth,left]{../images/nlaLogo.jpg}
-  \end{minipage}%
+\par\vspace*{.15\textheight}
+\begin{center}
+\vskip 1em
+{\fontsize{50}{60}\selectfont
+Christ Church
 
-  \bigskip\noindent
-  ISBN 978-0-646-83551-8 	
+\vspace{5mm}
+Murgon
+}
+\vskip 2em
+{\fontsize{20}{30}\selectfont
+Celebrating 100 Years\\
 
-  \bigskip\noindent
-  \copyright{ }Marcia McIntosh, 2021
+\vspace{2mm}
+of Anglican Parish History
+}
+\vfill
+{%
+\usekomafont{author}{ Compiled By Marcia McIntosh \par}%
+}%
+\end{center}
 
-  \bigskip\noindent
-  {\small This book was set with the help of {\KOMAScript} and {\LaTeX}}
-  \end{minipage}\par
+\clearpage
+\thispagestyle{empty}
+\noindent\begin{minipage}[t]{\textwidth}
+{\small Printed By:\\T J Printing Group\\42 King St, Deception Bay QLD 4508}
+\end{minipage}\par
+\par\vspace*{.35\textheight}
+\noindent\begin{minipage}[b]{\textwidth}
+\begin{center}
+{\small In the spirit of reconciliation we acknowledge the Traditional Custodians
+of country throughout Australia and their connections to land, sea and community.
+We pay our respect to their elders past and present and extend that respect to all
+Aboriginal and Torres Strait Islander peoples today.}
+\end{center}
+\end{minipage}\par
+\vfill
+\noindent\begin{minipage}[b]{\textwidth}
+\noindent\begin{minipage}[b]{.45\textwidth}%
+\includegraphics[width=\linewidth,left]{../images/nlaLogo.jpg}
+\end{minipage}%
 
-  \clearpage
-  \thispagestyle{empty}
-  \par\vspace*{.45\textheight}
-  \noindent\begin{minipage}[b]{\textwidth}
-  \begin{center}
-    {\small In the spirit of reconciliation we acknowledge the Traditional Custodians
-            of country throughout Australia and their connections to land, sea and community.
-            We pay our respect to their elders past and present and extend that respect to all
-            Aboriginal and Torres Strait Islander peoples today.}
-  \end{center}
-  \end{minipage}\par
+\bigskip\noindent
+ISBN 978-0-646-83551-8 	
+
+\bigskip\noindent
+\copyright{ }Marcia McIntosh, 2021
+
+\bigskip\noindent
+{\small This book was set with the help of {\KOMAScript} and {\LaTeX}}
+\end{minipage}\par
+
+\clearpage
+\thispagestyle{empty}
+\par\vspace*{.1\textheight}
+\noindent\begin{minipage}[t]{\textwidth}
+\begin{center}
+\includegraphics[width=.85\linewidth,center]{../images/christChurchMurgon_2019_11_29.jpg}
+\end{center}
+\end{minipage}\par
+\vspace{5mm}
+\noindent\begin{minipage}[b]{\textwidth}
+\begin{center}
+\includegraphics[width=.85\linewidth,center]{../images/christChurchMurgon_front_1_2019_11_29.jpg}
+{\small {\itshape Christ Church Murgon, 2019} (R Kerr)}
+\end{center}
+\end{minipage}
+\newpage
+\thispagestyle{empty}
+\par\vspace*{.1\textheight}
+\noindent\begin{minipage}[t]{\textwidth}
+\begin{center}
+\includegraphics[width=.8\linewidth,center]{../images/christChurchMurgon_front_2019_11_29.jpg}
+{\small {\itshape Christ Church Murgon, 2019} (R Kerr)}
+\end{center}
+\end{minipage}\par
+
+%  \clearpage
+%  \thispagestyle{empty}
+%  \par\vspace*{.45\textheight}
+%  \noindent\begin{minipage}[b]{\textwidth}
+%  \begin{center}
+%    {\small In the spirit of reconciliation we acknowledge the Traditional Custodians
+%            of country throughout Australia and their connections to land, sea and community.
+%            We pay our respect to their elders past and present and extend that respect to all
+%            Aboriginal and Torres Strait Islander peoples today.}
+%  \end{center}
+%  \end{minipage}\par
 \end{titlepage}
 %\newpage
 \onecolumn
