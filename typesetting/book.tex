@@ -14,6 +14,7 @@
 \usepackage{caption}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{microtype}
 \usepackage{lettrine}
 \usepackage[export]{adjustbox}
 \usepackage{graphicx}
@@ -46,6 +47,12 @@
 \renewcommand\textfraction{0.1}
 \renewcommand\floatpagefraction{0.85}
 
+%\pretolerance=8000
+%\tolerance=1000
+%\emergencystretch=-1pt
+%\righthyphenmin=4
+%\lefthyphenmin=4
+
 %\usepackage[showframe]{geometry}
 %\usepackage{geometry}
 %\usepackage[%
@@ -69,7 +76,7 @@
 {
 %format = \small ,
 %format = \footnotesize ,
-format = \scriptsize ,
+format = \scriptsize\raggedright\leftskip.5em, 
 %format = \tiny ,
 notes-sep=0pt,
 number = \textsuperscript{#1}
