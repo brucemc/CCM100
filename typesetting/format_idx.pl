@@ -343,6 +343,12 @@ while (<INFILE>) {
     if ($line =~ /Arnott/) {
       $line =~ s/Arnott/Arnott\\index{Arnott, Felix}/;
     }
+    if ($line =~ /Gerald Greaves/) {
+      $line =~ s/Gerald Greaves/Gerald Greaves\\index{Greaves, Gerald}/;
+    }
+    if ($line =~ /Rev Greaves/) {
+      $line =~ s/Rev Greaves/Rev Greaves\\index{Greaves, Gerald}/;
+    }
     $output .= $line;
   }
  

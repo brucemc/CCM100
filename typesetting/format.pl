@@ -29,7 +29,7 @@ while (<INFILE>) {
   }
   elsif ($line =~ /Newcol$/) {
     my $skip = "\\vfill\\null\n";
-    my $skip .= "\\newpage\n";
+    #my $skip .= "\\newpage\n";
     push @chap_lines, $skip;
   }
   elsif ($line =~ /Newpage$/) {
@@ -98,6 +98,21 @@ while (<INFILE>) {
       $fig .= "\\end{center}\n";
       $fig .= "\\end{figure*}\n";
     }
+    elsif ($pic_pos eq "P") {
+      $fig .= "\\begin{figure*}[htb]\n";
+      $fig .= "\\begin{center}\n";
+      $fig .= "\\includegraphics[width=$pic_width\\textwidth,center]{../images/$file_name}\n";
+      if ($caption ne "") {
+        if ($source ne "") {
+          $fig .= "\\caption{{\\itshape $caption} {\\scriptsize($source)}}\n";
+        }
+        else {
+          $fig .= "\\caption{\\itshape $caption}\n";
+        }
+      }
+      $fig .= "\\end{center}\n";
+      $fig .= "\\end{figure*}\n";
+    }
     elsif ($pic_pos eq "c") {
       $fig .= "\\begin{figure}\n";
       $fig .= "\\begin{center}\n";
@@ -112,6 +127,23 @@ while (<INFILE>) {
       }
       $fig .= "\\end{center}\n";
       $fig .= "\\end{figure}\n";
+    }
+    elsif ($pic_pos eq "ph") {
+      $fig .= "\\medskip\n";
+      $fig .= "\\begin{minipage}[b]{\\textwidth}\n";
+      $fig .= "\\begin{center}\n";
+      $fig .= "\\includegraphics[width=$pic_width\\textwidth,center]{../images/$file_name}\n";
+      if ($caption ne "") {
+        if ($source ne "") {
+          $fig .= "\\captionof{figure}{{\\itshape $caption} {\\scriptsize($source)}}\n";
+        }
+        else {
+          $fig .= "\\captionof{figure}{\\itshape $caption}\n";
+        }
+      }
+      $fig .= "\\end{center}\n";
+      $fig .= "\\end{minipage}\n";
+      $fig .= "\\medskip\n";
     }
     elsif ($pic_pos eq "ch") {
       $fig .= "\\medskip\n";
