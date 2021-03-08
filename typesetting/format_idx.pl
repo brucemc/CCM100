@@ -349,6 +349,27 @@ while (<INFILE>) {
     if ($line =~ /Rev Greaves/) {
       $line =~ s/Rev Greaves/Rev Greaves\\index{Greaves, Gerald}/;
     }
+    if ($line =~ /G C Quinn/) {
+      $line =~ s/G C Quinn/G C Quinn\\index{Quinn, G C}/;
+    }
+    if ($line =~ /G C \(Chappie\) Quinn/) {
+      $line =~ s/G C \(Chappie\) Quinn/G C (Chappie) Quinn\\index{Quinn, G C}/;
+    }
+    if ($line =~ /Lindsay Quinn/) {
+      $line =~ s/Lindsay Quinn/Lindsay Quinn\\index{Quinn, Lindsay}/;
+    }
+    if ($line =~ /Joyce Quinn/) {
+      $line =~ s/Joyce Quinn/Joyce Quinn\\index{Quinn, Joyce}/;
+    }
+    if ($line =~ /Linda Quinn/) {
+      $line =~ s/Linda Quinn/Linda Quinn\\index{Quinn, Linda}/;
+    }
+    if ($line =~ /L Quinn/) {
+      $line =~ s/L Quinn/L Quinn\\index{Quinn, Linda}/;
+    }
+    if ($line =~ /Dorothea Quinn/) {
+      $line =~ s/Dorothea Quinn/Dorothea Quinn\\index{Quinn, Dorothea}/;
+    }
     $output .= $line;
   }
  
